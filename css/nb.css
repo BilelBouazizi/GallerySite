@@ -40,6 +40,8 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
+    display: grid;
+    grid-template-columns: 80px 1fr 40px;
 }
 #logoImg{
     width: 80px;
@@ -50,9 +52,13 @@ body {
 #mainHeader > h1 {
     color: var(--white);
     font-family: Cantarell, Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1.3em;
+    font-size: 1em;
     font-weight: normal;
-    display: none;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin: 0;
+    /*display: none; */
 }
 #mainNav{
     background-color: var(--red);
@@ -60,12 +66,15 @@ body {
     width: 100%;
     top: 40px;
     padding-bottom: 10px;
-    display: none;
+     
 }
 #mainNav ul{
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+
 }
 img{
     max-width: 100%;
@@ -124,6 +133,8 @@ main {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-gap: 20px;
  }
 #pageContent.galleries ul li{
     background-color: var(--white);
@@ -169,6 +180,14 @@ main {
 /*  blog list  */
 #pageContent.blogList #leftCol article{
     padding: 20px;
+}
+#pageContent.twoCols{
+    display: grid;
+    grid-gap: 20px
+}
+#pageContent.blogList #leftCol{
+    display: grid;
+    grid-gap: 20px;
 }
 #pageContent.blogList #leftCol article:nth-child(even){
     background-color: var(--white);
@@ -258,22 +277,63 @@ main {
 }
 
 #mainFooter{
-    text-align: center;
+   
     height: 40px;
     font-size: .5em;
     position: fixed;
     bottom: 0;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--tWhite);
 }
 
 @media screen and (min-width : 768px){
- #menuToggle{
-     display: none;
- }
-}
+    #menuToggle{
+        display: none;
+        }
+    #mainHeader{
+        grid-template-columns: 80px 250px 1fr;
+            }
+    #pageContent.galleries ul{
+        grid-template-columns: repeat(2, 1fr);
+            }
+    #mainNav{
+         position: static;
+         background-color: transparent;
+            }
+    #mainNav a{
+        font-size: 1.2em;
+            }
+
+    #mainNav ul{
+       flex-direction: row;
+       height: 40px;
+       align-items: center;
+            }
+
+}       
 @media screen and (min-width : 1024px){
-  
+    #mainHeader{
+        grid-template-columns: 80px repeat(2, 1fr);
+        
+     }
+     #mainHeader>h1{
+         font-size: 1.3em;
+     }
+     #pageContent.galleries ul{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #pageContent.twoCols{
+        grid-template-columns: 2fr 1fr;
+    }
    }
 @media screen and (min-width : 1200px){
-  
+    #pageContent.galleries ul{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    #pageContent.twoCols{
+        grid-template-columns: 3fr 1fr;
+                        }
    }
