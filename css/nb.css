@@ -49,6 +49,12 @@ body {
     z-index: 1000;
     position: relative;
 }
+#pageContent.text .alignLeft{
+    float: left;
+}
+#pageContent.text .alignRight{
+    float: left;
+}
 #mainHeader > h1 {
     color: var(--white);
     font-family: Cantarell, Verdana, Geneva, Tahoma, sans-serif;
@@ -66,6 +72,7 @@ body {
     width: 100%;
     top: 40px;
     padding-bottom: 10px;
+    display: none;
      
 }
 #mainNav ul{
@@ -85,6 +92,8 @@ img{
     text-decoration: none;
     font-family: Cantarell,Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.5em;
+    display: block;
+    padding-left: 90px;
 }
 #mainNav a:hover{
     color: var(--shaded-red);
@@ -103,6 +112,29 @@ main {
     font-size: 1.8em;
     color: var(--red);
     letter-spacing: .1em;
+}
+#pageContent.home{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+#pageContent.home #pictInfo {
+    background-color: var(--tWhite);
+    padding: 40px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+}
+#pageContent.home #pictInfo h1{
+    font-family: Cantarell, Arial, sans-serif;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+#pageContent.home #pictInfo p{
+    margin: 10px 0;
+    font-size: .8em;
 }
 #pageContent.text h2{
     font-size: 1.5em;
@@ -151,9 +183,14 @@ main {
 /*  Form style*/
 #pageContent.contact form{
     border-top: solid 1px var(--white);
+    display: grid;
+
+
 }
 #pageContent.contact form > div > div {
     margin: 20px 0;
+    display: flex;
+    flex-direction: column;
 }
 #pageContent.contact form label{
     margin-bottom: 5px;
@@ -250,6 +287,8 @@ main {
     color: var(--black);
     text-decoration: none;
     padding: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 #pageContent.blog #rightCol li a span, #pageContent.blog #rightCol h2 span{
     width: 20px;
@@ -258,6 +297,10 @@ main {
     border-radius: 50%;
     background-color: var(--red);
     color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 #pageContent.blog #rightCol li a:hover, #pageContent.blog #rightCol h2 a:hover{
     background-color: var(--shaded-red);
@@ -302,9 +345,11 @@ main {
     #mainNav{
          position: static;
          background-color: transparent;
+         display: block !important;
             }
     #mainNav a{
         font-size: 1.2em;
+        padding: 0 10px;
             }
 
     #mainNav ul{
@@ -312,6 +357,10 @@ main {
        height: 40px;
        align-items: center;
             }
+
+    #pageContent.home{
+        justify-content: flex-end;
+    }
 
 }       
 @media screen and (min-width : 1024px){
@@ -327,6 +376,15 @@ main {
     }
     #pageContent.twoCols{
         grid-template-columns: 2fr 1fr;
+    }
+    #pageContent.contact form{
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+
+    }
+    #pageContent.contact form button{
+        grid-column: span 2;
+
     }
    }
 @media screen and (min-width : 1200px){
